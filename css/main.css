@@ -298,11 +298,18 @@ h1,h2,h3,h4{ font-family: var(--font-display); font-weight: 500; line-height: 1.
   position:absolute; inset:0; pointer-events:none; opacity: 0.05; mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
-.hero__content{
-  position: relative; z-index: 5;
-  width:100%; padding: 0 var(--gutter) clamp(64px, 9vw, 120px);
+.hero__content {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  padding: 0 var(--gutter) 70px;
+  transform: translateY(75px);
 }
+
 .hero__label{ margin-bottom: 22px; }
+.hero__label {
+  color: #8fc9ff !important;
+}
 .hero__headline{
   font-size: clamp(2.6rem, 7.4vw, 6.4rem);
   color: var(--text-primary);
@@ -498,6 +505,13 @@ h1,h2,h3,h4{ font-family: var(--font-display); font-weight: 500; line-height: 1.
   display:flex; flex-direction:column; gap: 3px;
   padding-top: 18px; border-top: 1px solid var(--line);
 }
+.testimonial-card__stars {
+  color: #c9a227;
+  font-size: 15px;
+  letter-spacing: 3px;
+  margin-bottom: 14px;
+  line-height: 1;
+}
 .testimonial__name{ font-family: var(--font-display); font-size: 1rem; color: var(--text-primary); }
 .testimonial__loc{ font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform:uppercase; color: var(--text-faint); }
 .testimonials__note{
@@ -562,4 +576,12 @@ h1,h2,h3,h4{ font-family: var(--font-display); font-weight: 500; line-height: 1.
   background-image:
     linear-gradient(90deg, rgba(245,243,236,0.05) 1px, transparent 1px),
     linear-gradient(0deg, rgba(245,243,236,0.05) 1px, transparent 1px);
+}
+/* Light text for hero buttons */
+.hero__ctas .btn {
+  color: #f7f5f0 !important;
+}
+
+.hero__ctas .btn .arrow {
+  color: #f7f5f0 !important;
 }
