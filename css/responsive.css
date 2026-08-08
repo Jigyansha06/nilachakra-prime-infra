@@ -113,3 +113,23 @@
   .hero{ min-height: 460px; }
 }
 
+/* Custom cursor / touch indicator on mobile */
+@media (max-width: 768px) {
+  .cursor {
+    display: block;
+    position: fixed;
+    width: 18px;
+    height: 18px;
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.1s ease;
+  }
+
+  .cursor.is-visible {
+    opacity: 1;
+  }
+}

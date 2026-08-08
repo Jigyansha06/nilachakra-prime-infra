@@ -107,3 +107,26 @@
 
   window.NPI_NAV_READY = true;
 })();
+/* Mobile touch cursor */
+const cursor = document.querySelector('.cursor');
+
+if (cursor) {
+  document.addEventListener('touchstart', (e) => {
+    const touch = e.touches[0];
+
+    cursor.style.left = `${touch.clientX}px`;
+    cursor.style.top = `${touch.clientY}px`;
+    cursor.classList.add('is-visible');
+  }, { passive: true });
+
+  document.addEventListener('touchmove', (e) => {
+    const touch = e.touches[0];
+
+    cursor.style.left = `${touch.clientX}px`;
+    cursor.style.top = `${touch.clientY}px`;
+  }, { passive: true });
+
+  document.addEventListener('touchend', () => {
+    cursor.classList.remove('is-visible');
+  }, { passive: true });
+}
