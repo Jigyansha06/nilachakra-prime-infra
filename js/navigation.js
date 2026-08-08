@@ -107,26 +107,54 @@
 
   window.NPI_NAV_READY = true;
 })();
-/* Mobile touch cursor */
+/* Smooth mobile touch cursor */
 const cursor = document.querySelector('.cursor');
 
 if (cursor) {
+  let targetX = 0;
+  let targetY = 0;
+  let currentX = 0;
+  let currentY = 0;
+  let visible = false;
+
   document.addEventListener('touchstart', (e) => {
     const touch = e.touches[0];
 
-    cursor.style.left = `${touch.clientX}px`;
-    cursor.style.top = `${touch.clientY}px`;
+    targetX = touch.clientX;
+    targetY = touch.clientY;
+    currentX = targetX;
+    currentY = targetY;
+
+    cursor.style.transform =
+      `translate3d(${currentX}px, ${currentY}px, 0) translate(-50%, -50%)`;
+
     cursor.classList.add('is-visible');
+    visible = true;
   }, { passive: true });
 
   document.addEventListener('touchmove', (e) => {
     const touch = e.touches[0];
 
-    cursor.style.left = `${touch.clientX}px`;
-    cursor.style.top = `${touch.clientY}px`;
+    targetX = touch.clientX;
+    targetY = touch.clientY;
   }, { passive: true });
 
   document.addEventListener('touchend', () => {
     cursor.classList.remove('is-visible');
+    visible = false;
   }, { passive: true });
+
+  function animateCursor() {
+    if (visible) {
+      currentX += (targetX - currentX) * 0.22;
+      currentY += (targetY - currentY) * 0.22;
+
+      cursor.style.transform =
+        `translate3d(${currentX}px, ${currentY}px, 0) translate(-50%, -50%)`;
+    }
+
+    requestAnimationFrame(animateCursor);
+  }
+
+  animateCursor();
 }
