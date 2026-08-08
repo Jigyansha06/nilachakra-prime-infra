@@ -25,7 +25,7 @@
   .nav{ padding: 16px 20px; }
   .nav__links, .nav__cta .btn--ghost{ display:none; }
   .nav__brand{ gap: 10px; font-size: 0.92rem; }
-  .brand-mark{ width: 34px; height: 34px; }
+  .brand-mark{ width: 30px; height: 30px; }
   /* Full legal suffix is unnecessary weight in a tight header —
      the wordmark alone is enough for brand recognition here. */
   .nav__brand small{ display:none; }
@@ -75,9 +75,16 @@
   .why__interface{ min-height: auto; }
   .why__stage{ min-height: 320px; }
 
-  .approach__stage{ grid-template-columns: 1fr; gap: 10px; }
-  .approach__rail{ display:none; }
-
+  .approach__stage {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.approach__stages {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 14px;
+}
   .testimonial-grid{ grid-template-columns: 1fr; }
 
   .footer__top{ flex-direction:column; gap: 30px; }
