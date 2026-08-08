@@ -585,3 +585,46 @@ h1,h2,h3,h4{ font-family: var(--font-display); font-weight: 500; line-height: 1.
 .hero__ctas .btn .arrow {
   color: #f7f5f0 !important;
 }
+/* ============ FLOATING WHATSAPP ============ */
+
+.whatsapp-float {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-float svg {
+  width: 29px;
+  height: 29px;
+  fill: currentColor;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float {
+    right: 16px;
+    bottom: 18px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .whatsapp-float svg {
+    width: 26px;
+    height: 26px;
+  }
+}
