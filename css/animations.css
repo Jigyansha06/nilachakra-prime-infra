@@ -1,0 +1,55 @@
+/* ============================================================
+   ANIMATION SUPPORT STYLES
+   Base (hidden) states for elements GSAP animates in.
+   Kept out of main.css so motion concerns stay separate.
+   ============================================================ */
+
+[data-reveal]{
+  opacity: 0;
+  transform: translateY(40px);
+  will-change: transform, opacity;
+}
+[data-reveal-fade]{ opacity: 0; will-change: opacity; }
+
+[data-split-lines] .line{ overflow: hidden; }
+
+.line-draw{
+  position: relative;
+}
+.line-draw::before{
+  content:'';
+  position:absolute;
+  background: var(--accent-line);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+@keyframes pulseGlow{
+  0%, 100%{ opacity: 0.35; }
+  50%{ opacity: 0.9; }
+}
+.glow-pulse{ animation: pulseGlow 3.4s ease-in-out infinite; }
+
+@keyframes floatSlow{
+  0%, 100%{ transform: translateY(0); }
+  50%{ transform: translateY(-10px); }
+}
+
+/* Slow-drifting blueprint grid — a quiet "living" architectural
+   backdrop for the philosophy and future-developments moments. */
+@keyframes gridDrift{
+  0%{ background-position: 0 0, 0 0; }
+  100%{ background-position: 80px 80px, 80px 80px; }
+}
+.grid-lines--animated{ animation: gridDrift 26s linear infinite; }
+
+.js-loading [data-reveal], .js-loading [data-reveal-fade]{
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce){
+  [data-reveal], [data-reveal-fade]{
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

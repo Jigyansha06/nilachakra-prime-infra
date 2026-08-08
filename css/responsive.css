@@ -1,0 +1,106 @@
+/* ============================================================
+   RESPONSIVE — tablet and mobile rebuilds (not just shrinking)
+   Breakpoints: 1024, 768, 480, 414, 390, 375, 320
+   ============================================================ */
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1024px){
+  :root{ --section-pad: clamp(72px, 10vw, 140px); }
+  .about__grid, .vision__grid, .why__interface, .contact__grid{
+    grid-template-columns: 1fr;
+  }
+  .about__grid{ gap: 40px; }
+  .about__media{ order: -1; }
+  .why__interface{ min-height: auto; }
+  .why__stage{ min-height: 360px; }
+  .testimonial-grid{ grid-template-columns: 1fr 1fr; }
+  .footer__top{ flex-direction:column; }
+}
+
+/* ---------- Nav: switch to compact/burger mode earlier than the
+   general content breakpoint. Six links + the brand lockup + a CTA
+   button don't reliably fit a laptop-narrow window (900–1024px),
+   which is what caused the header to feel crowded/overlapping. ---------- */
+@media (max-width: 960px){
+  .nav{ padding: 16px 20px; }
+  .nav__links, .nav__cta .btn--ghost{ display:none; }
+  .nav__brand{ gap: 10px; font-size: 0.92rem; }
+  .brand-mark{ width: 34px; height: 34px; }
+  /* Full legal suffix is unnecessary weight in a tight header —
+     the wordmark alone is enough for brand recognition here. */
+  .nav__brand small{ display:none; }
+  .nav__burger{
+    display:flex; align-items:center; justify-content:center;
+    width: 40px; height: 40px; position: relative; z-index: 600;
+  }
+  .nav__burger span{
+    display:block; width: 20px; height: 1px; background: var(--nav-fg);
+    position:absolute; left:10px; transition: transform 0.35s var(--ease-premium), opacity 0.3s, background 0.3s;
+  }
+  .nav__burger span:first-child{ top: 17px; }
+  .nav__burger span:last-child{ top: 23px; }
+  .nav.is-open .nav__burger span:first-child{ transform: translateY(3px) rotate(45deg); }
+  .nav.is-open .nav__burger span:last-child{ transform: translateY(-3px) rotate(-45deg); }
+  /* The open menu panel is always light, regardless of scroll position —
+     force the burger dark so it stays legible while open. */
+  .nav.is-open .nav__burger span{ background: var(--text-primary); }
+
+  .mobile-menu{
+    position: fixed; inset:0; background: var(--bg-primary); z-index: 550;
+    display:flex; flex-direction:column; justify-content:center; padding: 40px 28px;
+    transform: translateY(-100%); transition: transform 0.55s var(--ease-premium);
+  }
+  .mobile-menu.is-open{ transform: translateY(0); }
+  .mobile-menu a{ font-family: var(--font-display); font-size: 2rem; padding: 14px 0; border-bottom: 1px solid var(--line); color: var(--text-muted); }
+  .mobile-menu a:hover{ color: var(--text-primary); }
+  .mobile-menu .btn{ margin-top: 26px; align-self: flex-start; }
+}
+
+/* ---------- Mobile (<=768) — content rebuilds ---------- */
+@media (max-width: 768px){
+  .hero__scroll{ display:none; }
+  .hero__ctas{ flex-direction:column; align-items: stretch; }
+  .hero__ctas .btn{ justify-content:center; }
+  .hero__footer{ flex-direction:column; align-items:flex-start; gap: 16px; bottom: 20px; }
+
+  .section{ padding: clamp(64px, 16vw, 100px) 0; }
+  .about__grid, .vision__grid, .why__interface, .contact__grid, .project-panel{
+    grid-template-columns: 1fr !important;
+  }
+  .project-panel__media{ order: -1 !important; }
+  .why__nums{ flex-direction: row; overflow-x: auto; gap: 4px; }
+  .why__num-item{ flex: 0 0 auto; border-top:none; border-bottom: 2px solid var(--line); padding: 10px 14px; }
+  .why__num-item.is-active{ border-bottom-color: var(--accent); }
+  .why__num-item .t{ display:none; }
+  .why__interface{ min-height: auto; }
+  .why__stage{ min-height: 320px; }
+
+  .approach__stage{ grid-template-columns: 1fr; gap: 10px; }
+  .approach__rail{ display:none; }
+
+  .testimonial-grid{ grid-template-columns: 1fr; }
+
+  .footer__top{ flex-direction:column; gap: 30px; }
+  .footer__cols{ flex-wrap: wrap; gap: 30px; }
+
+  .trust__row{ gap: 24px 40px; }
+  .cursor{ display:none; }
+}
+
+/* ---------- Small phones ---------- */
+@media (max-width: 480px){
+  .hero__headline{ font-size: clamp(2.1rem, 9vw, 2.8rem); }
+  .section-head h2{ font-size: clamp(1.9rem, 8vw, 2.4rem); }
+  .philosophy blockquote{ font-size: clamp(1.4rem, 7vw, 1.9rem); }
+  .btn{ padding: 15px 22px; font-size: 12px; }
+  .container{ padding: 0 20px; }
+}
+
+/* ---------- Short viewports (landscape phones/tablets) ----------
+   Prevents the vertical scroll indicator from overlapping the hero
+   CTAs when there isn't much height to work with. */
+@media (max-height: 640px){
+  .hero__scroll{ display:none; }
+  .hero{ min-height: 460px; }
+}
+

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>[Project Name] — Nilachakra Prime Infra Pvt. Ltd.</title>
+<meta name="description" content="[Project Name] — a prime development opportunity in [Location, Odisha] by Nilachakra Prime Infra Pvt. Ltd.">
+<meta name="theme-color" content="#f7f5f0">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/icons/favicon-192.png">
+<link rel="apple-touch-icon" sizes="192x192" href="../assets/icons/favicon-192.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/animations.css">
+<link rel="stylesheet" href="../css/responsive.css">
+
+<style>
+  /* Page-specific additions — kept local since only this template needs them */
+  .pd-hero{
+    position:relative; height: 70vh; min-height: 480px; display:flex; align-items:flex-end;
+    background: #08090c; overflow:hidden;
+    /* Same dark cinematic scene as the homepage hero — scope light
+       text tokens locally so descendants pick them up automatically. */
+    --text-primary: #f7f5f0;
+    --text-muted: rgba(247,245,240,0.76);
+    --text-faint: rgba(247,245,240,0.56);
+  }
+  .pd-hero__media{ position:absolute; inset:0; background-size:cover; background-position:center; transform: scale(1.1); }
+  .pd-hero__media::after{ content:''; position:absolute; inset:0; background: linear-gradient(0deg, rgba(8,9,14,0.95) 0%, rgba(8,9,14,0.35) 55%, rgba(8,9,14,0.65) 100%); }
+  .pd-hero__content{ position:relative; z-index:2; padding: 0 var(--gutter) 64px; width:100%; }
+  .pd-hero__num{ font-family: var(--font-mono); font-size:12px; color: var(--accent); letter-spacing:0.1em; }
+  .pd-hero__name{ font-size: clamp(2.4rem, 6vw, 5rem); margin: 16px 0 10px; max-width: 16ch; color: var(--text-primary); }
+  .pd-hero__sub{ font-family: var(--font-mono); font-size: 13px; color: var(--text-muted); letter-spacing: 0.05em; text-transform:uppercase; }
+
+  .pd-info{ display:flex; gap: clamp(30px,5vw,80px); flex-wrap:wrap; padding: 40px 0; border-bottom: 1px solid var(--line); }
+  .pd-info__item .l{ font-family: var(--font-mono); font-size: 10px; text-transform:uppercase; letter-spacing: 0.1em; color: var(--text-faint); margin-bottom: 8px; }
+  .pd-info__item .v{ font-size: 1.1rem; }
+
+  .pd-overview{ display:grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,6vw,90px); padding: clamp(60px,8vw,100px) 0; align-items:start; }
+  .pd-overview p{ color: var(--text-muted); margin-bottom: 20px; max-width: 52ch; }
+  .pd-overview__media{ aspect-ratio: 4/5; overflow:hidden; }
+  .pd-overview__media img{ width:100%; height:100%; object-fit:cover; }
+
+  .pd-highlights{ padding-bottom: clamp(60px,8vw,100px); }
+  .pd-highlights ul{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 16px 40px; margin-top: 30px; }
+  .pd-highlights li{ display:flex; gap: 12px; align-items:flex-start; color: var(--text-muted); }
+  .pd-highlights li::before{ content:'✓'; color: var(--accent); font-family: var(--font-mono); }
+
+  .pd-cta{ display:flex; gap: 18px; flex-wrap:wrap; padding: 50px 0 80px; }
+
+  @media (max-width: 768px){
+    .pd-overview, .pd-highlights ul{ grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body class="js-loading">
+
+<a href="#main" class="skip-link visually-hidden">Skip to content</a>
+
+<div class="preloader" role="status" aria-live="polite">
+  <div class="preloader__logo-wrap">
+    <img class="preloader__logo" src="../assets/images/nilachakra-logo-full.png" alt="Nilachakra Prime Infra Pvt. Ltd.">
+  </div>
+  <div class="preloader__line"><i></i></div>
+  <div class="preloader__pct">00%</div>
+</div>
+
+<div class="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
+
+<header class="nav">
+  <a href="../index.html" class="nav__brand">
+    <span class="brand-mark"><img src="../assets/images/nilachakra-logo-mark.png" alt="" role="presentation"></span>
+    <span class="brand-text">
+      <span class="brand-name">NILACHAKRA</span>
+      <small>PRIME INFRA PVT. LTD.</small>
+    </span>
+  </a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#vision">Vision</a>
+    <a href="../index.html#projects">Projects</a>
+    <a href="../index.html#approach">Approach</a>
+    <a href="../index.html#future">Future Developments</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+  <div class="nav__cta">
+    <a href="../index.html#contact" class="btn btn--ghost">Enquire Now</a>
+  </div>
+  <button class="nav__burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../index.html#about">About</a>
+  <a href="../index.html#vision">Vision</a>
+  <a href="../index.html#projects">Projects</a>
+  <a href="../index.html#approach">Approach</a>
+  <a href="../index.html#future">Future Developments</a>
+  <a href="../index.html#contact">Contact</a>
+  <a href="../index.html#contact" class="btn">Enquire Now <span class="arrow">&rarr;</span></a>
+</div>
+
+<main id="main">
+
+  <!-- ============ PROJECT HERO ============ -->
+  <section class="pd-hero">
+    <div class="pd-hero__media" style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1800&auto=format&fit=crop')"></div>
+    <div class="pd-hero__content">
+      <span class="pd-hero__num">PROJECT 01</span>
+      <h1 class="pd-hero__name" data-split-scroll>[Project Name]</h1>
+      <div class="pd-hero__sub">A prime opportunity in [Location, Odisha]</div>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- ============ KEY INFO ============ -->
+    <div class="pd-info" data-reveal-group>
+      <div class="pd-info__item">
+        <div class="l">Location</div>
+        <div class="v">[Location, Odisha]</div>
+      </div>
+      <div class="pd-info__item">
+        <div class="l">Project Type</div>
+        <div class="v">[Residential / Commercial / Plotted Development / Infrastructure]</div>
+      </div>
+      <div class="pd-info__item">
+        <div class="l">Project Status</div>
+        <div class="v">[Upcoming / Ongoing / Completed]</div>
+      </div>
+    </div>
+
+    <!-- ============ OVERVIEW ============ -->
+    <div class="pd-overview">
+      <div>
+        <div class="eyebrow" data-reveal-fade>PROJECT OVERVIEW</div>
+        <p data-reveal style="margin-top:22px;">[Project Name] is a carefully planned development located in [location], offering convenient access to important roads, residential areas, commercial zones and essential amenities.</p>
+        <p data-reveal>Designed with a focus on accessibility and long-term usability, the project represents Nilachakra Prime Infra's commitment to creating meaningful development opportunities.</p>
+      </div>
+      <div class="pd-overview__media" data-mask-reveal>
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop" alt="Placeholder architectural image for this project — replace with real project photography" data-parallax>
+      </div>
+    </div>
+
+    <!-- ============ HIGHLIGHTS ============ -->
+    <div class="pd-highlights">
+      <div class="eyebrow" data-reveal-fade>KEY HIGHLIGHTS</div>
+      <ul data-reveal-group>
+        <li>Strategic Location</li>
+        <li>Excellent Connectivity</li>
+        <li>Planned Development</li>
+        <li>Proximity to Key Amenities</li>
+        <li>[Other verified feature]</li>
+        <li>[Other verified feature]</li>
+      </ul>
+      <p class="project-panel__note" style="margin-top:20px;">*Legal, approval and documentation claims are shown only where verified for this specific project.</p>
+    </div>
+
+    <!-- ============ CTA ============ -->
+    <div class="pd-cta">
+      <a href="#" class="btn" data-cursor-label="BROCHURE">Get Project Brochure <span class="arrow">&rarr;</span></a>
+      <a href="../index.html#contact" class="btn btn--ghost">Enquire Now</a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="grid-lines" aria-hidden="true" style="opacity:0.2;"></div>
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand">
+          <span class="brand-mark"><img src="../assets/images/nilachakra-logo-mark.png" alt="Nilachakra Prime Infra Pvt. Ltd." role="presentation"></span>
+          <span class="footer__brand-text">Nilachakra Prime Infra</span>
+        </div>
+        <div class="footer__tagline">Building Foundations. Creating Futures.</div>
+      </div>
+      <div class="footer__cols">
+        <div class="footer__col">
+          <h4>Navigate</h4>
+          <a href="../index.html#about">About</a>
+          <a href="../index.html#vision">Vision</a>
+          <a href="../index.html#projects">Projects</a>
+          <a href="../index.html#approach">Approach</a>
+          <a href="../index.html#future">Future Developments</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <span>[Phone to be added]</span>
+          <span>[Email to be added]</span>
+          <span>[Address to be added]</span>
+        </div>
+        <div class="footer__col">
+          <h4>Follow</h4>
+          <span>[Social links to be added]</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; <span data-year>2026</span> Nilachakra Prime Infra Pvt. Ltd. All rights reserved.</span>
+      <span class="coord">20.2961° N, 85.8245° E — ODISHA, INDIA</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/split-type@0.3.4/umd/index.min.js"></script>
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+<script src="../js/navigation.js"></script>
+<script src="../js/animations.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>
