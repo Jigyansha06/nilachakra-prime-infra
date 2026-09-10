@@ -420,29 +420,6 @@ h1,h2,h3,h4{ font-family: var(--font-display); font-weight: 500; line-height: 1.
 .why__stage-content p{ color: var(--text-muted); max-width: 42ch; margin-top: 14px; }
 .why__stage-content .coord{ color: var(--text-faint); }
 
-/* ---------------- Projects ---------------- */
-.projects{ background: var(--bg-primary); }
-.projects__desc{ max-width: 56ch; color: var(--text-muted); margin-top: 18px; }
-.project-panel{
-  position: relative;
-  display:grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 70px);
-  align-items:center;
-  padding: clamp(50px,7vw,90px) 0;
-  border-top: 1px solid var(--line);
-}
-.project-panel:last-child{ border-bottom: 1px solid var(--line); }
-.project-panel__media{ position:relative; aspect-ratio: 16/11; overflow:hidden; }
-.project-panel__media img{ width:100%; height:100%; object-fit:cover; }
-.project-panel__num{ font-family: var(--font-mono); font-size: 12px; color: var(--accent); }
-.project-panel__name{ font-size: clamp(1.7rem, 3.4vw, 2.8rem); margin: 14px 0 6px; }
-.project-panel__loc{ font-family: var(--font-mono); font-size: 12px; color: var(--text-faint); letter-spacing: 0.06em; text-transform:uppercase; margin-bottom: 20px; }
-.project-panel__desc{ color: var(--text-muted); max-width: 46ch; margin-bottom: 22px; }
-.project-panel__highlights{ display:flex; flex-wrap:wrap; gap: 10px 22px; margin-bottom: 30px; }
-.project-panel__highlights li{ font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); letter-spacing: 0.03em; display:flex; align-items:center; gap: 8px; }
-.project-panel__highlights li::before{ content:''; width: 4px; height: 4px; background: var(--accent); }
-.project-panel__note{ font-size: 11px; color: var(--text-faint); margin-top: 6px; }
-.project-panel:nth-child(even) .project-panel__media{ order: 2; }
-
 /* ---------------- Approach ---------------- */
 .approach{ background: var(--bg-secondary); }
 .approach__track{ position: relative; display:grid; grid-template-columns: 40px 1fr; gap: clamp(24px, 4vw, 60px); }
@@ -474,6 +451,86 @@ h1,h2,h3,h4{ font-family: var(--font-display); font-weight: 500; line-height: 1.
 .trust__stat{ text-align:left; min-width: 140px; }
 .trust__stat .v{ font-family: var(--font-display); font-size: clamp(1.6rem,2.6vw,2.2rem); color: var(--accent); }
 .trust__stat .l{ font-family: var(--font-mono); font-size: 10px; color: var(--text-faint); letter-spacing: 0.08em; text-transform:uppercase; margin-top: 6px; }
+
+/* ---------------- Leadership ----------------
+   New section. Prefixed leadership__ throughout so nothing here can
+   collide with existing selectors. Card visual language (border,
+   var(--bg-elevated), var(--line)) deliberately matches .testimonial
+   above rather than introducing a new style. */
+.leadership{ background: var(--bg-primary); }
+.leadership__subtitle{ color: var(--text-muted); margin-top: 18px; max-width: 56ch; }
+ 
+.leadership__grid{
+  display:grid; grid-template-columns: repeat(2, 1fr);
+  gap: clamp(24px, 3vw, 40px);
+  align-items: start;
+}
+ 
+.leadership__card{
+  border: 1px solid var(--line);
+  background: var(--bg-elevated);
+  padding: clamp(30px, 3.5vw, 44px);
+  display:flex; flex-direction:column; gap: 24px;
+  transition: border-color 0.4s var(--ease-premium), transform 0.4s var(--ease-premium);
+}
+@media (hover:hover) and (pointer:fine){
+  .leadership__card:hover{ border-color: var(--accent-line); transform: translateY(-4px); }
+}
+ 
+ 
+.leadership__name{ font-size: clamp(1.3rem, 2vw, 1.6rem); }
+.leadership__role{
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em;
+  text-transform:uppercase; color: var(--accent); margin-top: 6px;
+}
+.leadership__intro{ color: var(--text-muted); margin-top: 16px; }
+ 
+.leadership__quote{
+  border-left: 2px solid var(--accent-line);
+  padding: 4px 0 4px 18px;
+  margin: 4px 0 0;
+}
+.leadership__quote p{
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+ 
+.leadership__tags{ display:flex; flex-wrap:wrap; gap: 8px; }
+.leadership__tags li{
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.03em;
+  color: var(--text-muted);
+  border: 1px solid var(--line); border-radius: 3px;
+  padding: 6px 11px;
+}
+ 
+.leadership__details{ border-top: 1px solid var(--line); padding-top: 18px; }
+.leadership__details summary{
+  cursor: pointer; list-style:none;
+  display:flex; align-items:center; justify-content:space-between; gap: 12px;
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em;
+  text-transform:uppercase; color: var(--text-primary);
+}
+.leadership__details summary::-webkit-details-marker{ display:none; }
+.leadership__details-icon{
+  position: relative; flex: none; width: 14px; height: 14px;
+}
+.leadership__details-icon::before, .leadership__details-icon::after{
+  content:''; position:absolute; background: var(--accent);
+  transition: transform 0.3s var(--ease-premium);
+}
+.leadership__details-icon::before{ left:0; top:6px; width:14px; height:1.5px; }
+.leadership__details-icon::after{ left:6px; top:0; width:1.5px; height:14px; }
+.leadership__details[open] .leadership__details-icon::after{ transform: rotate(90deg); }
+.leadership__details-body{ margin-top: 20px; display:flex; flex-direction:column; gap: 14px; }
+.leadership__details-body h4{
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em;
+  text-transform:uppercase; color: var(--text-faint); margin-top: 6px;
+}
+.leadership__details-body h4:first-child{ margin-top: 0; }
+.leadership__details-body p{ color: var(--text-muted); }
+
 
 /* ---------------- Testimonials ---------------- */
 .testimonials{ text-align:center; }
@@ -628,3 +685,13 @@ h1,h2,h3,h4{ font-family: var(--font-display); font-weight: 500; line-height: 1.
     height: 26px;
   }
 }
+/* ---------- 17. BACK TO TOP ---------- */
+#backToTop {
+  position: fixed; bottom: 28px; right: 28px; z-index: 999;
+  width: 50px; height: 50px; border-radius: 50%; border: none;
+  background: var(--primary); color: #fff; font-size: 1.05rem;
+  box-shadow: var(--shadow-md); opacity: 0; visibility: hidden; transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+#backToTop.show { opacity: 1; visibility: visible; transform: translateY(0); }
+#backToTop:hover { background: var(--secondary); color: var(--primary); }

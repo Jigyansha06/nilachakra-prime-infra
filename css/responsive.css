@@ -117,25 +117,3 @@
   .hero__scroll{ display:none; }
   .hero{ min-height: 460px; }
 }
-
-/* Custom cursor / touch indicator on mobile */
-@media (max-width: 768px) {
-  .cursor {
-    display: block;
-    position: fixed;
-    width: 18px;
-    height: 18px;
-    border: 1px solid rgba(255,255,255,0.8);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    will-change: transform;
-  }
-
-  .cursor.is-visible {
-    opacity: 1;
-  }
-}
