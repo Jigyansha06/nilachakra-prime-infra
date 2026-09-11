@@ -206,7 +206,7 @@ h1,h2,h3,h4{ font-family: var(--font-display); font-weight: 500; line-height: 1.
 
 /* ---------------- Navigation ---------------- */
 .nav{
-  position: fixed; top:0; left:0; right:0; z-index: 500;
+  position: fixed; top:0; left:0; right:0; z-index: 560;
   padding: 26px var(--gutter);
   display:flex; align-items:center; justify-content:space-between;
   transition: padding 0.5s var(--ease-premium), background 0.5s var(--ease-premium), border-color 0.5s;
