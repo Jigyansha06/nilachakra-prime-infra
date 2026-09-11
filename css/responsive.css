@@ -20,7 +20,7 @@
   display: none;
 }
 
-/* ---------- Nav: switch to compact/burger mode earlier than the
+* ---------- Nav: switch to compact/burger mode earlier than the
    general content breakpoint. Six links + the brand lockup + a CTA
    button don't reliably fit a laptop-narrow window (900–1024px),
    which is what caused the header to feel crowded/overlapping. ---------- */
@@ -28,7 +28,7 @@
   .nav{ padding: 16px 20px; }
   .nav__links, .nav__cta .btn--ghost{ display:none; }
   .nav__brand{ gap: 10px; font-size: 0.92rem; }
-  .brand-mark{ width: 30px; height: 30px; }
+  .brand-mark{ width: 34px; height: 34px; }
   /* Full legal suffix is unnecessary weight in a tight header —
      the wordmark alone is enough for brand recognition here. */
   .nav__brand small{ display:none; }
@@ -47,25 +47,26 @@
   /* The open menu panel is always light, regardless of scroll position —
      force the burger dark so it stays legible while open. */
   .nav.is-open .nav__burger span{ background: var(--text-primary); }
-
+ 
   .mobile-menu{
     position: fixed; inset:0; background: var(--bg-primary); z-index: 550;
-    display:flex; flex-direction:column; justify-content:center; padding: 40px 28px;
+    display:flex; flex-direction:column; justify-content:center; padding: 88px 28px 40px;
+    overflow-y: auto;
     transform: translateY(-100%); transition: transform 0.55s var(--ease-premium);
   }
   .mobile-menu.is-open{ transform: translateY(0); }
-  .mobile-menu a{ font-family: var(--font-display); font-size: 2rem; padding: 14px 0; border-bottom: 1px solid var(--line); color: var(--text-muted); }
+  .mobile-menu a{ font-family: var(--font-display); font-size: clamp(1.3rem, 6vw, 1.7rem); padding: 11px 0; border-bottom: 1px solid var(--line); color: var(--text-muted); }
   .mobile-menu a:hover{ color: var(--text-primary); }
-  .mobile-menu .btn{ margin-top: 26px; align-self: flex-start; }
+  .mobile-menu .btn{ margin-top: 22px; align-self: flex-start; }
 }
-
+ 
 /* ---------- Mobile (<=768) — content rebuilds ---------- */
 @media (max-width: 768px){
   .hero__scroll{ display:none; }
   .hero__ctas{ flex-direction:column; align-items: stretch; }
   .hero__ctas .btn{ justify-content:center; }
   .hero__footer{ flex-direction:column; align-items:flex-start; gap: 16px; bottom: 20px; }
-
+ 
   .section{ padding: clamp(64px, 16vw, 100px) 0; }
   .about__grid, .vision__grid, .why__interface, .contact__grid, .project-panel{
     grid-template-columns: 1fr !important;
@@ -77,39 +78,39 @@
   .why__num-item .t{ display:none; }
   .why__interface{ min-height: auto; }
   .why__stage{ min-height: 320px; }
-
-  .approach__stage {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.approach__stages {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px 14px;
-}
+ 
+  .approach__stage{ grid-template-columns: 1fr; gap: 10px; }
+  .approach__rail{ display:none; }
+ 
   .testimonial-grid{ grid-template-columns: 1fr; }
-
+ 
+  /* Leadership cards: tighter box + a centered profile-card header
+     (square photo, name, role) instead of the left-flowing desktop
+     layout — reads as a compact card on a narrow screen rather than
+     a long column of running text. */
+  .leadership__card{ padding: 26px 22px; gap: 18px; }
+  .leadership__photo{ width: 96px; aspect-ratio: 1/1; margin: 0 auto; }
+  .leadership__name{ text-align:center; }
+  .leadership__role{ text-align:center; }
+  .leadership__intro{ text-align:center; }
+  .leadership__tags{ justify-content:center; }
+ 
   .footer__top{ flex-direction:column; gap: 30px; }
   .footer__cols{ flex-wrap: wrap; gap: 30px; }
-
+ 
   .trust__row{ gap: 24px 40px; }
+  .cursor{ display:none; }
 }
-
+ 
 /* ---------- Small phones ---------- */
-@media (max-width: 480px){}
+@media (max-width: 480px){
   .hero__headline{ font-size: clamp(2.1rem, 9vw, 2.8rem); }
   .section-head h2{ font-size: clamp(1.9rem, 8vw, 2.4rem); }
   .philosophy blockquote{ font-size: clamp(1.4rem, 7vw, 1.9rem); }
   .btn{ padding: 15px 22px; font-size: 12px; }
   .container{ padding: 0 20px; }
-  .whatsapp-float {
-  right: 16px;
-  bottom: 18px;
-  width: 50px;
-  height: 50px;
 }
-
+ 
 /* ---------- Short viewports (landscape phones/tablets) ----------
    Prevents the vertical scroll indicator from overlapping the hero
    CTAs when there isn't much height to work with. */
