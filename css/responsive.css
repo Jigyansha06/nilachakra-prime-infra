@@ -17,6 +17,15 @@
   .footer__top{ flex-direction:column; }
 }
 
+/* Mobile menu panel is hidden by default at every width. Its
+   position/transform/etc. only exist inside the max-width:960px
+   block below (they don't apply above that), so without this
+   unconditional rule the panel falls back to a plain static block
+   sitting in normal document flow at desktop widths — visible,
+   unstyled, and overlapping the header. Keep this rule outside any
+   media query. */
+.mobile-menu{ display:none; }
+
 /* ---------- Nav: switch to compact/burger mode earlier than the
    general content breakpoint. Six links + the brand lockup + a CTA
    button don't reliably fit a laptop-narrow window (900–1024px),
